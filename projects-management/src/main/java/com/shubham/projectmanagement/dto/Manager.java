@@ -1,7 +1,7 @@
 package com.shubham.projectmanagement.dto;
 
-public class Developer {
-	
+public class Manager {
+
 	private int id;
 	private String name;
 	private String email;
@@ -47,12 +47,6 @@ public class Developer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
 	public String getAddress() {
 		return address;
 	}
@@ -65,13 +59,18 @@ public class Developer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	@Override
 	public String toString() {
-		return "Developer [id=" + id + ", name=" + name + ", email=" + email + ", role=" + role + ", designation="
+		return "Manager [id=" + id + ", name=" + name + ", email=" + email + ", role=" + role + ", designation="
 				+ designation + ", password=" + password + ", address=" + address + ", phone=" + phone + ", status="
 				+ status + "]";
 	}
 	
 	
-
 }
