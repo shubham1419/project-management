@@ -9,6 +9,11 @@
 		<%@include file="dashboard.jsp"%>
 	</c:if>
 	
+	<!--  **for testing purpose**-->
+	<c:if test="${userCLickTesting == true}">
+		<%@include file="testing.jsp"%>
+	</c:if>
+	
 </body>
 <%@include file="./shared/footer.jsp"%>
 </html>
