@@ -3,14 +3,21 @@ package com.shubham.projectmanagement.daoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shubham.projectmanagement.dao.DeveloperDao;
 import com.shubham.projectmanagement.dto.Developer;
 
 @Repository("developerDao")
+@Transactional
 public class DeveloperDaoImpl implements DeveloperDao {
 
+	@Autowired
+	SessionFactory sessionFactory;
+	
 	private static List<Developer> devlopers = new ArrayList<>();
 	
 	static{
@@ -54,8 +61,16 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	}
 
 	public boolean add(Developer developer) {
-		// TODO Auto-generated method stub
-		return false;
+		try
+		{
+			sessionFactory.getCurrentSession().persist(developer);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public boolean update(Developer developer) {

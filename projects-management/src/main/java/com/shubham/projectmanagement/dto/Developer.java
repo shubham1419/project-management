@@ -1,7 +1,11 @@
 package com.shubham.projectmanagement.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Developer {
-	
+	@Id
 	private int id;
 	private String name;
 	private String email;

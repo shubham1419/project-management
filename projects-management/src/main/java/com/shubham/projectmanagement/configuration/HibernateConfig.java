@@ -1,4 +1,4 @@
-package com.shubham.projectsmanagement.configuration;
+package com.shubham.projectmanagement.configuration;
 
 import java.util.Properties;
 
@@ -8,6 +8,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -21,7 +22,10 @@ import com.shubham.projectmanagement.dto.Developer;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScan("com.shubham.projectmanagement")
+@ComponentScans(value = { 
+	      @ComponentScan("com.shubham.projectmanagement")
+	    })
+
 public class HibernateConfig {
 	
 	@Autowired
@@ -32,8 +36,8 @@ public class HibernateConfig {
 	      BasicDataSource dataSource = new BasicDataSource();
 	      dataSource.setDriverClassName(env.getProperty("db.driver"));
 	      dataSource.setUrl(env.getProperty("db.url"));
-	    /*  dataSource.setUsername(env.getProperty("db.username"));
-	      dataSource.setPassword(env.getProperty("db.password"));*/
+	      dataSource.setUsername(env.getProperty("db.username"));
+	      dataSource.setPassword(env.getProperty(""));
 	      return dataSource;
 	   }
 
