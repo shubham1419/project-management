@@ -31,7 +31,7 @@ private static DeveloperDao developerDao;
 	@Test
 	public void testAddCategory()	{
 		developer = new Developer();
-		developer.setId(1);
+		//developer.setId(1);
 		developer.setName("DName");
 		developer.setAddress("Address1");
 		developer.setDesignation("Designation1");

@@ -14,7 +14,7 @@ import com.shubham.projectmanagement.dto.Developer;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScans(value = { @ComponentScan("com.shubham.projectmanagement")})
+@ComponentScans(value = { @ComponentScan("com.shubham.projectmanagement.dao"),@ComponentScan("com.shubham.projectmanagement.dao"),@ComponentScan("com.shubham.projectmanagement.daoImpl")})
 public class HibernateConfig {
 
 	@Autowired
