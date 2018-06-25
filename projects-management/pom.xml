@@ -128,12 +128,13 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- HSQL Dependency -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
-			<groupId>hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>${hsqldb.version}</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.7-dmr</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
