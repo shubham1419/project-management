@@ -50,9 +50,9 @@ public class DeveloperDaoImpl implements DeveloperDao {
 		
 	}
 	
+	/*for getting single category by id*/
 	public Developer get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession().get(Developer.class,Integer.valueOf(id));
 	}
 
 	public List<Developer> list() {
@@ -74,13 +74,43 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	}
 
 	public boolean update(Developer developer) {
-		// TODO Auto-generated method stub
-		return false;
+		try
+		{
+			sessionFactory.getCurrentSession().update(developer);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 
-	public boolean delete(Developer developer) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean softDelete(Developer developer) {
+		developer.setStatus(false);
+		try
+		{
+			sessionFactory.getCurrentSession().update(developer);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean hardDelete(Developer developer) {
+		try
+		{
+			sessionFactory.getCurrentSession().delete(developer);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

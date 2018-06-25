@@ -10,6 +10,7 @@ public interface DeveloperDao {
 	List<Developer> list();
 	boolean add(Developer developer);
 	boolean update(Developer developer);
-	boolean delete(Developer developer);
+	boolean softDelete(Developer developer);
+	boolean hardDelete(Developer developer);
 	
 }
